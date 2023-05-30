@@ -26,7 +26,7 @@ class Square:
     def area(self):
         """Calculate the are of the current square
         """
-        return self.__size ** 2
+        return self.size ** 2
 
     @property
     def size(self):
@@ -57,7 +57,7 @@ class Square:
         if (type(value) != tuple
                 or len(value) != 2
                 or type(value[0]) != int
-                or type(value[0]) != int
+                or type(value[1]) != int
                 or value[0] < 0
                 or value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -72,7 +72,7 @@ class Square:
         if self.size == 0:
             print('')
             return
-        for p in range(self.position[1]):
+        for _ in range(self.position[1]):
             print('')
-        for s in range(self.size):
+        for _ in range(self.size):
             print(' ' * self.position[0] + "#" * self.size)
