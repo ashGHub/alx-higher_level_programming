@@ -11,23 +11,14 @@ def pascal_triangle(n):
     Args:
         n: size of pascal triangle
     """
-    result = []
+    result = [[1]]
     if n <= 0:
-        return result
-    for row in range(n):
-        value = []
-        if (row == 0):
-            value.append(1)
-            result.append(value)
-        elif row == 1:
-            value.append(1)
-            value.append(1)
-            result.append(value)
-        else:
-            prv = result[row - 1]
-            value.append(1)
-            for i in range(1, row - 1):
-                value.append(prv[i - 1] + prv[i])
-            value.append(1)
-            result.append(value)
+        return []
+    for row in range(1, n):
+        value = [1]
+        prv = result[row - 1]
+        for i in range(1, row):
+            value.append(prv[i - 1] + prv[i])
+        value.append(1)
+        result.append(value)
     return result
