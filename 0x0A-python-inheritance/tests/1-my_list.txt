@@ -20,3 +20,14 @@ Now use it:
 	>>> a.append(2)
 	>>> a.print_sorted()
 	[1, 2, 4]
+	>>> b = MyList()
+	>>> b.append(-9)
+	>>> b.append(-8)
+	>>> b.append(-11)
+	>>> b.print_sorted()
+	[-11, -9, -8]
+	>>> str(a) == '[1, 4, 2]'
+	True
+	>>> b != b.print_sorted()
+	[-11, -9, -8]
+	True
