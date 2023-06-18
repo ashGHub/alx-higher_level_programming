@@ -92,3 +92,46 @@ class Base:
                 return []
             lst = Base.from_json_string(f_content)
             return [cls.create(**dct) for dct in lst]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        save CSV string representation of list_objs to a file
+
+        Args:
+            list_objs: list of base classes
+        """
+        file_name = f"{cls.__name__}.csv"
+        with open(file_name, mode="a+", encoding="UTF-8") as f:
+            if list_objs is None:
+                return
+            for obj in list_objs:
+                dct = obj.to_dictionary()
+                is_square = dct.get('size', -1) != -1
+                s = ""
+                if is_square:
+                    s = dct['size']
+                else:
+                    s = f"{dct['width']},{dct['height']}"
+                data = f"{dct['id']},{s},{dct['x']},{dct['y']}\n"
+                f.write(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        returns list of instances from file
+        """
+        file_name = f"{cls.__name__}.csv"
+        result = []
+        with open(file_name, mode="r", encoding="UTF-8") as f:
+            for line in f:
+                lst_r = line.split(",")
+                lst = [int(x) for x in lst_r]
+                d = {}
+                is_square = len(lst) == 4
+                if is_square:
+                    d["id"], d["size"], d["x"], d["y"] = lst
+                else:
+                    d["id"], d["width"], d["height"], d["x"], d["y"] = lst
+                result.append(cls.create(**d))
+        return result
