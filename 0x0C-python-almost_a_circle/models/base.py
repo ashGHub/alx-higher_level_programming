@@ -79,3 +79,16 @@ class Base:
             for obj in list_objs:
                 data.append(obj.to_dictionary())
             f.write(Base.to_json_string(data))
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        returns list of instances from file
+        """
+        file_name = f"{cls.__name__}.json"
+        with open(file_name, mode="r", encoding="UTF-8") as f:
+            f_content = f.read()
+            if f.tell() == 0:
+                return []
+            lst = Base.from_json_string(f_content)
+            return [cls.create(**dct) for dct in lst]
