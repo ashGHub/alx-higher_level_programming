@@ -113,6 +113,26 @@ class Rectangle(Base):
         print(" \n" * self.y, end='')
         print(f"{' ' * self.x}{'#' * self.width}\n" * self.height, end='')
 
+    def update(self, *args):
+        """
+        update rectangle attributes in one go
+            1st id, 2sec width, 3rd height, 4th height
+            5th x, 6th y
+        Args:
+            args (*args): list of arguments
+        """
+        for i in range(len(args)):
+            if i == 0:
+                self.id = args[0]
+            elif i == 1:
+                self.width = args[1]
+            elif i == 2:
+                self.height = args[2]
+            elif i == 3:
+                self.x = args[3]
+            elif i == 4:
+                self.y = args[4]
+
     def __str__(self):
         """
         prints string representation of rectangle class
