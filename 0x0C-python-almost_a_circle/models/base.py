@@ -62,23 +62,30 @@ class Base:
             list_rectangles: list of rectangles
             list_squares: list of squares
         """
-        crs = ['#FF5733', '#C70039', '#900C3F', '#581845', '#FFC300']
         lst = list_rectangles + list_squares
+        crs = ['#FF7F50', '#FFC0CB', '#FFA500', '#FF1493', '#FF4500']
+        # start draw screen at the center 
         screen = turtle.Screen()
+        screen_width = screen.window_width()
+        screen_height = screen.window_height()
+        start_x = (screen_width // 2) - (800 // 2)
+        start_y = (screen_height // 2) - (600 // 2)
+        screen.setup(width=800, height=600, startx=start_x, starty=start_y)
+
         t = turtle.Turtle()
         for obj in lst:
             t.penup()
             t.goto(obj.x, obj.y)
             t.fillcolor(random.choice(crs))
             t.pendown()
-            t.beginfill()
+            t.begin_fill()
             for _ in range(2):
                 t.forward(obj.width)
                 t.left(90)
                 t.forward(obj.height)
-                t.left(9)
-            t.endfill()
-        t.done()
+                t.left(90)
+            t.end_fill()
+        turtle.done()
 
     @classmethod
     def create(cls, **dictionary):
