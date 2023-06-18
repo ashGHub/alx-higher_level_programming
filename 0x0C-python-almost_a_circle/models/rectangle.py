@@ -111,3 +111,11 @@ class Rectangle(Base):
         prints the rectiangle area using symbols
         """
         print(f"{'#' * self.width}\n" * self.height, end='')
+
+    def __str__(self):
+        """
+        prints string representation of rectangle class
+        """
+        xy = f"{self.x}/{self.y}"
+        wh = f"{self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {xy} - {wh}"
