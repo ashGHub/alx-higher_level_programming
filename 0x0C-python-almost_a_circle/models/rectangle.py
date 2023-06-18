@@ -110,7 +110,8 @@ class Rectangle(Base):
         """
         prints the rectiangle area using symbols
         """
-        print(f"{'#' * self.width}\n" * self.height, end='')
+        print(" \n" * self.y, end='')
+        print(f"{' ' * self.x}{'#' * self.width}\n" * self.height, end='')
 
     def __str__(self):
         """
