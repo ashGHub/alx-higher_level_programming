@@ -40,6 +40,13 @@ class Square(Rectangle):
         self.height = value
         self.__size = value
 
+    def to_dictionary(self):
+        """
+        returns dictionary format of this class
+        """
+        attrs = ["id", "size", "x", "y"]
+        return {attr: getattr(self, attr) for attr in attrs}
+
     def __str__(self):
         """
         prints string representation of rectangle class
