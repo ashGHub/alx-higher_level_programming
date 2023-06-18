@@ -138,6 +138,13 @@ class Rectangle(Base):
         for k, v in kwargs.items():
             setattr(self, k, v)
 
+    def to_dictionary(self):
+        """
+        returns dictionary format of this class
+        """
+        attrs = ["id", "width", "height", "x", "y"]
+        return {attr: getattr(self, attr) for attr in attrs}
+
     def __str__(self):
         """
         prints string representation of rectangle class
