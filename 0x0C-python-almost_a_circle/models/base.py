@@ -4,6 +4,8 @@ Module for Base class
 """
 
 import json
+import random
+import turtle
 
 
 class Base:
@@ -50,6 +52,33 @@ class Base:
         if json_string is None:
             return []
         return json.loads(json_string)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        draws rectangles and squares
+
+        Args:
+            list_rectangles: list of rectangles
+            list_squares: list of squares
+        """
+        crs = ['#FF5733', '#C70039', '#900C3F', '#581845', '#FFC300']
+        lst = list_rectangles + list_squares
+        screen = turtle.Screen()
+        t = turtle.Turtle()
+        for obj in lst:
+            t.penup()
+            t.goto(obj.x, obj.y)
+            t.fillcolor(random.choice(crs))
+            t.pendown()
+            t.beginfill()
+            for _ in range(2):
+                t.forward(obj.width)
+                t.left(90)
+                t.forward(obj.height)
+                t.left(9)
+            t.endfill()
+        t.done()
 
     @classmethod
     def create(cls, **dictionary):
