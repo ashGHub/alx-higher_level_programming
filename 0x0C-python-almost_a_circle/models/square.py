@@ -22,6 +22,23 @@ class Square(Rectangle):
             id (int): id for the rsquare
         """
         super().__init__(size, size, x,  y, id)
+        self.size = size
+
+    @property
+    def size(self):
+        """
+        getter for size
+        """
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """
+        setter for size
+        """
+        self.width = value
+        self.height = value
+        self.__size = value
 
     def __str__(self):
         """
