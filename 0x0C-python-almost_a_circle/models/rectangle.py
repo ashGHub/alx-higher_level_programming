@@ -141,6 +141,7 @@ class Rectangle(Base):
         """
         prints string representation of rectangle class
         """
+        class_name = self.__class__.__name__
         xy = f"{self.x}/{self.y}"
         wh = f"{self.width}/{self.height}"
-        return f"[Rectangle] ({self.id}) {xy} - {wh}"
+        return f"[{class_name}] ({self.id}) {xy} - {wh}"
