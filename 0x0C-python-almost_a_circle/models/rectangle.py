@@ -120,6 +120,7 @@ class Rectangle(Base):
             5th x, 6th y
         Args:
             args (*args): list of arguments
+            kwargs (dict): arguments in dictionary
         """
         for i in range(len(args)):
             if i == 0:
