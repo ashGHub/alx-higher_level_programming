@@ -39,6 +39,13 @@ class Rectangle(Base):
     def width(self, value):
         """
         setter for width
+
+        Args:
+            value (int): new value to set
+
+        Raises:
+            TypeError: if value is not integer
+            ValueError: if value is less than zero
         """
         if type(value) != int:
             raise TypeError("width must be an integer")
@@ -57,6 +64,13 @@ class Rectangle(Base):
     def height(self, value):
         """
         setter for height
+
+        Args:
+            value (int): new value to set
+
+        Raises:
+            TypeError: if value is not integer
+            ValueError: if value is less than zero
         """
         if type(value) != int:
             raise TypeError("height must be an integer")
@@ -75,6 +89,13 @@ class Rectangle(Base):
     def x(self, value):
         """
         setter for x
+
+        Args:
+            value (int): new value to set
+
+        Raises:
+            TypeError: if value is not integer
+            ValueError: if value is less than zero
         """
         if type(value) != int:
             raise TypeError("x must be an integer")
@@ -93,6 +114,13 @@ class Rectangle(Base):
     def y(self, value):
         """
         setter for y
+
+        Args:
+            value (int): new value to set
+
+        Raises:
+            TypeError: if value is not integer
+            ValueError: if value is less than zero
         """
         if type(value) != int:
             raise TypeError("y must be an integer")
@@ -118,6 +146,7 @@ class Rectangle(Base):
         update rectangle attributes in one go
             1st id, 2sec width, 3rd height, 4th height
             5th x, 6th y
+
         Args:
             args (*args): list of arguments
             kwargs (dict): arguments in dictionary

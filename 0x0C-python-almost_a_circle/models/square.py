@@ -16,7 +16,7 @@ class Square(Rectangle):
         initializes square class
 
         Args:
-            size (int): on side size of square
+            size (int): square side size
             x (int): x coordinate
             y (int): y coordinate
             id (int): id for the rsquare
@@ -35,6 +35,13 @@ class Square(Rectangle):
     def size(self, value):
         """
         setter for size
+
+        Args:
+            value (int): new value to set
+
+        Raises:
+            TypeError: if value is not integer
+            ValueError: if value is less than zero
         """
         self.width = value
         self.height = value
