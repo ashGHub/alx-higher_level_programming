@@ -11,7 +11,7 @@ class Base:
     This is a base class
 
     Attributes:
-        __nb_objects (int): holds number of objects with out id
+        __nb_objects (int): holds number of objects created
     """
 
     __nb_objects = 0
@@ -33,8 +33,23 @@ class Base:
     def to_json_string(list_dictionaries):
         """
         returns the JSON string representaiton of list_dictionaries
+
+        Args:
+            list_dictionaries (dict): list of dictionaries to parse
         """
         return json.dumps(list_dictionaries)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        returns the list of JSON string representation
+
+        Args:
+            json_string (JSON): json string to parse
+        """
+        if json_string is None:
+            return []
+        return json.loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
