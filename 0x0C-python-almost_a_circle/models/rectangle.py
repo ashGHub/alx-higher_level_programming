@@ -113,7 +113,7 @@ class Rectangle(Base):
         print(" \n" * self.y, end='')
         print(f"{' ' * self.x}{'#' * self.width}\n" * self.height, end='')
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         update rectangle attributes in one go
             1st id, 2sec width, 3rd height, 4th height
@@ -132,6 +132,10 @@ class Rectangle(Base):
                 self.x = args[3]
             elif i == 4:
                 self.y = args[4]
+        if len(args) != 0:
+            return
+        for k, v in kwargs.items():
+            setattr(self, k, v)
 
     def __str__(self):
         """
