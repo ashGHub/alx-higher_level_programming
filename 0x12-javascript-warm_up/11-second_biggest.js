@@ -4,7 +4,7 @@ if (process.argv.length <= 3) {
   console.log(0);
 } else {
   let max = parseInt(process.argv[2]);
-  let secMax = max;
+  let secMax = 0;
 
   for (let i = 1; i < process.argv.length; i++) {
     const n = parseInt(process.argv[i]);
