@@ -10,8 +10,11 @@ if (process.argv.length <= 3) {
     const n = parseInt(process.argv[i]);
 
     if (n > max) {
-      secMax = max;
       max = n;
+    }
+
+    if (n < max && n > secMax) {
+      secMax = n;
     }
   }
   console.log(secMax);
