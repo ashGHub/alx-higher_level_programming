@@ -2,6 +2,7 @@
 class Rectangle {
   width;
   height;
+  cr = 'X';
 
   constructor (w, h) {
     if (w > 0 && h > 0) {
@@ -14,7 +15,7 @@ class Rectangle {
     for (let i = 0; i < this.height; i++) {
       let rw = '';
       for (let j = 0; j < this.width; j++) {
-        rw = 'X' + rw;
+        rw = this.cr + rw;
       }
       console.log(rw);
     }
