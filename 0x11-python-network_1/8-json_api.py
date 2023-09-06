@@ -4,8 +4,8 @@ if __name__ == "__main__":
     import requests
     import sys
     url = 'http://0.0.0.0:5000/search_user'
-    data = {'q': sys.argv[1] if len(sys.argv) > 1 else ""}
-    res = requests.post(url, data)
+    letter = sys.argv[1] if len(sys.argv) > 1 else ""
+    res = requests.post(url, data={'q': letter})
     try:
         if res.json() == {}:
             print("No result")

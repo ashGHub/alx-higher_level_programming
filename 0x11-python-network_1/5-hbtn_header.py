@@ -3,5 +3,6 @@
 if __name__ == "__main__":
     import requests
     import sys
-    res = requests.get(sys.argv[1])
+    url = sys.argv[1]
+    res = requests.get(url)
     print(res.headers.get('X-Request-Id'))
