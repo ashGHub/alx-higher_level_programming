@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Makes POST with an email parameter and displays response body in UTF-8"""
+"""Makes POST with an email parameter and displays response body"""
 if __name__ == "__main__":
     import requests
     import sys
