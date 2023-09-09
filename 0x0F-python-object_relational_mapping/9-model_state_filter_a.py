@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module to list all State objects that contain the letter a
+Module to list all State objects that contain the letter 'a'
 from the database hbtn_0e_6_usa
 """
 
@@ -18,7 +18,8 @@ if __name__ == "__main__":
     )
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(State.name.like('%a%'))
+    states = session.query(State).order_by(State.id)
     for state in states:
-        print("{}: {}".format(state.id, state.name))
+        if 'a' in state.name:
+            print(f"{state.id}: {state.name}")
     session.close()
