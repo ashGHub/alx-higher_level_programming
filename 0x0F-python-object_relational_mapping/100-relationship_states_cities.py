@@ -9,7 +9,7 @@ if __name__ == "__main__":
     import sys
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
-    from relationship_state import Base, State
+    from relationship_state import State
     from relationship_city import City
     user = sys.argv[1]
     pw = sys.argv[2]
@@ -18,7 +18,6 @@ if __name__ == "__main__":
         f'mysql+mysqldb://{user}:{pw}@localhost/{db}',
         pool_pre_ping=True
     )
-    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
     new_state = State(name='California')
